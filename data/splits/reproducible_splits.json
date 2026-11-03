@@ -1,0 +1,31 @@
+{
+    "URPC2020": {
+        "source": "Underwater Robot Professional Contest 2020",
+        "total_samples": 5543,
+        "train_samples": 4434,
+        "val_samples": 1109,
+        "categories": [
+            "echinus",
+            "holothurian",
+            "scallop",
+            "starfish"
+        ],
+        "random_seed": 42
+    },
+    "TrashCan": {
+        "source": "TrashCan 1.0 (Instance Version)",
+        "total_samples": 7212,
+        "categories": [
+            "trash",
+            "bio",
+            "rov",
+            "plant"
+        ],
+        "evaluation_mode": "Zero-shot cross-domain transfer"
+    },
+    "SeaClear": {
+        "source": "SeaClear Marine Litter Dataset",
+        "annotation_type": "Semantic/Bounding-box with instance verification",
+        "evaluation_mode": "Zero-shot cross-domain generalization"
+    }
+}

@@ -1,0 +1,42 @@
+# TAS-UISNet Configuration File
+# Experiment Settings for Image and Vision Computing (Elsevier)
+
+model:
+  name: "TAS-UISNet"
+  backbone: "resnet50"
+  pretrained: true
+  feat_dim: 256
+  num_classes: 5
+  iterative_inference: false
+
+training:
+  epochs: 50
+  batch_size: 8
+  lr: 0.0001
+  weight_decay: 0.0001
+  use_amp: true
+  num_workers: 4
+  optimizer: "AdamW"
+  scheduler: "CosineAnnealingLR"
+
+losses:
+  lambda_r: 1.0       # Restoration loss weight
+  lambda_c: 1.0       # Classification loss weight
+  lambda_b: 1.0       # Box regression loss weight
+  lambda_m: 1.0       # Mask segmentation loss weight
+  lambda_e: 0.5       # Boundary refinement loss weight
+  lambda_u: 0.2       # Heteroscedastic uncertainty loss weight
+  lambda_f: 0.3       # Feature collaboration consistency weight
+
+hardware:
+  train_device: "cuda" # Targeted for RTX 4090 / A100
+  edge_target: "NVIDIA Jetson Orin"
+  mixed_precision: true
+
+paths:
+  urpc_root: "data/URPC2020"
+  trashcan_root: "data/TrashCan"
+  seaclear_root: "data/SeaClear"
+  checkpoint_dir: "checkpoints"
+  log_dir: "logs"
+
